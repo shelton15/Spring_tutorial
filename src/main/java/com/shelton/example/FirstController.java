@@ -25,4 +25,11 @@ public class FirstController {
     ) {
         return "Request accepted and order is:" + order.toString();
     }
+
+    @PostMapping("/post-order-record")
+    public String postRecord(
+            @RequestBody OrderRecord order
+    ) {
+        return "Request accepted and order is:" + order.toString();
+    }
 }

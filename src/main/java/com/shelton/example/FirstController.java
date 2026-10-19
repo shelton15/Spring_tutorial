@@ -32,4 +32,11 @@ public class FirstController {
     ) {
         return "Request accepted and order is:" + order.toString();
     }
+
+    @GetMapping("/hello/{user-name}")
+    public String pathVar(
+            @PathVariable("user-name") String userName
+    ) {
+        return "my value = " + userName;
+    }
 }

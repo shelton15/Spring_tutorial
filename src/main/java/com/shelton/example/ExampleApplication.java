@@ -10,8 +10,10 @@ public class ExampleApplication {
 	public static void main(String[] args) {
 		var ctx = SpringApplication.run(ExampleApplication.class, args);
 
-		MyFirstClass myFirstClass = ctx.getBean("myBean",MyFirstClass.class);
-//		System.out.println(myFirstClass.sayHello());
+		MyFirstClass myFirstClass = ctx.getBean(MyFirstClass.class);
+		System.out.println(myFirstClass.tellAStory());
+		System.out.println(myFirstClass.getJavaVersion());
+
 	}
 
 }

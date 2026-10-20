@@ -4,18 +4,43 @@ package com.shelton.example;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class FirstController {
 
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello from my first controller";
+    private final StudentRepository repository;
+
+    public FirstController(StudentRepository repository) {
+        this.repository = repository;
     }
 
-    @PostMapping("/post")
-    public String post(
-            @RequestBody String message
+    @PostMapping("/students")
+    public Student post(
+            @RequestBody Student student
     ) {
-        return "Request accepted and message is:" + message;
+        return repository.save(student);
+
+//        return "Request accepted and message is:" + student;
+    }
+
+//    @GetMapping("/students")
+//    public List<Student> findAllStudent() {
+//        return repository.findAll();
+//
+////        return "Request accepted and message is:" + student;
+//    }
+
+    @GetMapping("/students")
+    public List<Student> findAllStudent() {
+        return repository.findAll();
+    }
+
+    @GetMapping("/students/{student-id}")
+    public Student findStudentById(
+            @PathVariable("student-id") Integer id
+    ) {
+        return repository.findById(id)
+                .orElse(new Student());
     }
 }

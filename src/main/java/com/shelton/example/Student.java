@@ -1,14 +1,22 @@
 package com.shelton.example;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "T_STUDENT")
 public class Student {
 
     @Id
     private Integer id;
+    @Column(
+            name = "c_fname",
+            length = 30
+    )
     private String firstName;
+    @Column(unique = true)
     private String lastName;
     private String email;
     private int age;

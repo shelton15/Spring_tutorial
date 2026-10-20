@@ -28,7 +28,7 @@ public class FirstController {
 //    public List<Student> findAllStudent() {
 //        return repository.findAll();
 //
-////        return "Request accepted and message is:" + student;
+//        return "Request accepted and message is:" + student;
 //    }
 
     @GetMapping("/students")
@@ -42,5 +42,12 @@ public class FirstController {
     ) {
         return repository.findById(id)
                 .orElse(new Student());
+    }
+
+    @GetMapping("/students/search/{student-name}")
+    public List<Student> findStudentByName(
+            @PathVariable("student-name") String name
+    ) {
+        return repository.findAllByFirstnameContaining(name);
     }
 }

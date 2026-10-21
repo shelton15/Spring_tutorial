@@ -20,6 +20,20 @@ public class Student {
     private String email;
     private int age;
 
+    @OneToOne(
+            mappedBy = "student",
+            cascade = CascadeType.ALL
+    )
+    private StudentProfile studentProfile;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "school-id"
+    )
+    private School school;
+
+
+
     public Student() {
     }
 
@@ -68,5 +82,21 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 }

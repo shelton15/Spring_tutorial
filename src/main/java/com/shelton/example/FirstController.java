@@ -43,4 +43,12 @@ public class FirstController {
         return repository.findAllByFirstNameContaining(name);
     }
 
+    @DeleteMapping("/students/{student-id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(
+            @PathVariable("student-id") Integer id
+    ) {
+        repository.deleteById(id);
+    }
+
 }

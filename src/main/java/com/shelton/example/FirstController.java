@@ -20,19 +20,11 @@ public class FirstController {
             @RequestBody Student student
     ) {
         return repository.save(student);
-
-//        return "Request accepted and message is:" + student;
     }
-
-//    @GetMapping("/students")
-//    public List<Student> findAllStudent() {
-//        return repository.findAll();
-//
-//        return "Request accepted and message is:" + student;
-//    }
 
     @GetMapping("/students")
     public List<Student> findAllStudent() {
+
         return repository.findAll();
     }
 
@@ -48,6 +40,7 @@ public class FirstController {
     public List<Student> findStudentByName(
             @PathVariable("student-name") String name
     ) {
-        return repository.findAllByFirstnameContaining(name);
+        return repository.findAllByFirstNameContaining(name);
     }
+
 }

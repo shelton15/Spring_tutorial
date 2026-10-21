@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student,Integer> {
 
-    List<Student> findAllByFirstnameContaining(String p);
+    List<Student> findAllByFirstNameContaining(String firstName);
 }

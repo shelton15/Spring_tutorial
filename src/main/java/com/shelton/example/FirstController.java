@@ -44,7 +44,7 @@ public class FirstController {
                 .orElse(new Student());
     }
 
-    @GetMapping("/students/search/{student-name}")
+    @GetMapping("/students/search/{student-id}")
     public List<Student> findStudentByName(
             @PathVariable("student-name") String name
     ) {

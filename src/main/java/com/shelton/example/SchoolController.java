@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Nodes;
+
+import static java.lang.StableValue.map;
 
 @RestController
 public class SchoolController {
@@ -32,9 +36,15 @@ public class SchoolController {
         return new School(dto.name());
     }
 
-    @GetMapping("/schools")
-    public List<School> findAll() {
+    private SchoolDto toSchoolDto(School school) {
 
-        return schoolRepository.findAll();
+        return new SchoolDto(school.getName());
+
+    }
+
+    @GetMapping("/schools")
+    public List<SchoolDto> findAll() {
+
+        return schoolRepository.findAll()List<School>.stream()Stream<School>.map(this::toSchoolDto)Stream<SchoolDto>.collect(Collectors.toList());
     }
 }

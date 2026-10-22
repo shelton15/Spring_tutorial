@@ -7,6 +7,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -79,5 +82,33 @@ class StudentServiceTest {
                 .save(student);
         verify(studentMapper, times(1))
                 .toStudentResponseDto(savedStudent);
+    }
+
+    @Test
+    public void should_return_all_student() {
+
+        //Given
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(
+                "John",
+                "Doe",
+                "john@gmail.com",
+                2
+        ));
+
+        //Mock calls
+        when(repository.findAll()).thenReturn(students);
+
+        when(studentMapper.toStudentResponseDto(any(Student.class)))
+                .thenReturn(new StudentResponseDto(
+                        "John",
+                        "Doe",
+                        "john@gmail.com"
+                ));
+
+        List<StudentResponseDto> responseDtos = studentService.findAllStudent();
+
+        //Then
+        assertEquals(students.size(), responseDtos.size());
     }
 }

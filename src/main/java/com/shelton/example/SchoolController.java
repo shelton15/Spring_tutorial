@@ -6,10 +6,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Nodes;
-
-import static java.lang.StableValue.map;
 
 @RestController
 public class SchoolController {
@@ -25,10 +21,8 @@ public class SchoolController {
             @RequestBody SchoolDto dto
     ) {
         var school = toSchool(dto);
-
-        schoolRepository.save(school);
-
-        return dto;
+        var savedSchool = schoolRepository.save(school);
+        return toSchoolDto(savedSchool);
     }
 
     private School toSchool(SchoolDto dto) {
@@ -44,7 +38,9 @@ public class SchoolController {
 
     @GetMapping("/schools")
     public List<SchoolDto> findAll() {
-
-        return schoolRepository.findAll()List<School>.stream()Stream<School>.map(this::toSchoolDto)Stream<SchoolDto>.collect(Collectors.toList());
+        return schoolRepository.findAll()
+                .stream()
+                .map(this::toSchoolDto)
+                .toList();
     }
 }

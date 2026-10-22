@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class StudentServiceTest {
 
@@ -72,5 +72,12 @@ class StudentServiceTest {
         assertEquals(dto.firstName(), responseDto.firstName());
         assertEquals(dto.lastName(), responseDto.lastName());
         assertEquals(dto.email(), responseDto.email());
+
+        verify(studentMapper, times(1))
+                .toStudent(dto);
+        verify(repository, times(1))
+                .save(student);
+        verify(studentMapper, times(1))
+                .toStudentResponseDto(savedStudent);
     }
 }

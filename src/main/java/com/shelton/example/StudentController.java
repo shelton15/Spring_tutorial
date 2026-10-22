@@ -23,20 +23,20 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public List<Student> findAllStudent() {
+    public List<StudentResponseDto> findAllStudent() {
 
         return studentService.findAllStudent();
     }
 
     @GetMapping("/students/{student-id}")
-    public Student findStudentById(
+    public StudentResponseDto findStudentById(
             @PathVariable("student-id") Integer id
     ) {
         return studentService.findStudentById(id);
     }
 
     @GetMapping("/students/search/{student-id}")
-    public List<Student> findStudentByName(
+    public List<StudentResponseDto> findStudentByName(
             @PathVariable("student-name") String name
     ) {
         return studentService.findStudentByName(name);

@@ -110,5 +110,6 @@ class StudentServiceTest {
 
         //Then
         assertEquals(students.size(), responseDtos.size());
+        verify(repository, times(1)).findAll();
     }
 }

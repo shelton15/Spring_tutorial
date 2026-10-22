@@ -1,4 +1,4 @@
-package com.shelton.example;
+package com.shelton.example.student;
 
 public record StudentResponseDto(
         String firstName,

@@ -1,5 +1,6 @@
-package com.shelton.example;
+package com.shelton.example.student;
 
+import com.shelton.example.school.School;
 import org.springframework.stereotype.Service;
 
 @Service

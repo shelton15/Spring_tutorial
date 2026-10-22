@@ -1,4 +1,4 @@
-package com.shelton.example;
+package com.shelton.example.student;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

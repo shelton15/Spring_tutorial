@@ -1,4 +1,4 @@
-package com.shelton.example;
+package com.shelton.example.school;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

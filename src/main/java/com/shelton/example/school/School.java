@@ -1,6 +1,7 @@
-package com.shelton.example;
+package com.shelton.example.school;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.shelton.example.student.Student;
 import jakarta.persistence.*;
 
 import java.util.List;

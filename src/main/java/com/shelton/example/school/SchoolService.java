@@ -1,7 +1,6 @@
-package com.shelton.example;
+package com.shelton.example.school;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 

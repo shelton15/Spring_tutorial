@@ -1,6 +1,8 @@
-package com.shelton.example;
+package com.shelton.example.student;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.shelton.example.school.School;
+import com.shelton.example.studentprofile.StudentProfile;
 import jakarta.persistence.*;
 
 @Entity

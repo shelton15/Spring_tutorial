@@ -1,5 +1,6 @@
-package com.shelton.example;
+package com.shelton.example.studentprofile;
 
+import com.shelton.example.student.Student;
 import jakarta.persistence.*;
 
 @Entity

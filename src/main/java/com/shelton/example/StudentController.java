@@ -47,7 +47,7 @@ public class StudentController {
     public void delete(
             @PathVariable("student-id") Integer id
     ) {
-        return repository.deleteById(id);
+        studentService.delete(id);
     }
 
 }

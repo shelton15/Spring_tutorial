@@ -35,4 +35,7 @@ public class StudentService {
         return repository.findAllByFirstNameContaining(name);
     }
 
+    public void delete(Integer id) {
+        repository.deleteById(id);
+    }
 }

@@ -45,6 +45,9 @@ public class StudentService {
     }
 
     public void delete(Integer id) {
-        repository.deleteById(id);
+
+        return repository.deleteById(id)
+                .map(studentMapper::toStudentResponseDto)
+                .orElse(null);
     }
 }

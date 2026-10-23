@@ -180,11 +180,4 @@ class StudentServiceTest {
 
     }
 
-    @Test
-    public void delete() {
-        //Given
-        Integer studentId = 1;
-
-
-    }
 }
